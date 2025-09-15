@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+    <link rel="icon" type="image/x-icon" href="Untitled.ico">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #66a3ff; /* Light Blue */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+            margin: 10px;
+            background: #fff;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #3399ff; /* Medium Light Blue */
+        }
+        .portfolio, .testimonials {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .project, .testimonial {
+            flex: 1;
+            margin: 10px;
+            padding: 10px;
+            background: #e2e2e2;
+            border-radius: 5px;
+            width: calc(30% - 20px);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #66a3ff; /* Light Blue */
+            color: #fff;
+        }
+        button {
+            background-color: #3399ff; /* Medium Light Blue */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #66b3ff; /* Lighter Blue */
+        }
+        @media (max-width: 600px) {
+            .portfolio, .testimonials {
+                flex-direction: column;
+            }
+            .project, .testimonial {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to JTs Personal Website</h1>
+</header>
+
+<section id="about-me">
+    <h2>About Me</h2>
+    <p>[Insert a short bio about yourself, your background, and your interests.]</p>
+</section>
+
+<section id="portfolio">
+    <h2>My Portfolio</h2>
+    <div class="portfolio">
+        <div class="project">
+            <h3>Project 1</h3>
+            <p>A brief description of Project 1.</p>
+        </div>
+        <div class="project">
+            <h3>Project 2</h3>
+            <p>A brief description of Project 2.</p>
+        </div>
+        <div class="project">
+            <h3>Project 3</h3>
+            <p>A brief description of Project 3.</p>
+        </div>
+    </div>
+</section>
+
+<section id="skills">
+    <h2>My Skills</h2>
+    <ul>
+        <li>Skill 1</li>
+        <li>Skill 2</li>
+        <li>Skill 3</li>
+        <li>Skill 4</li>
+        <li>Skill 5</li>
+    </ul>
+</section>
+
+<section id="testimonials">
+    <h2>What Others Say</h2>
+    <div class="testimonials">
+        <div class="testimonial">
+            <p>"[Testimonial 1]"</p>
+            <p>- Person 1</p>
+        </div>
+        <div class="testimonial">
+            <p>"[Testimonial 2]"</p>
+            <p>- Person 2</p>
+        </div>
+        <div class="testimonial">
+            <p>"[Testimonial 3]"</p>
+            <p>- Person 3</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 Jts Studio. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

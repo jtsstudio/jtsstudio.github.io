@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+    <link rel="icon" type="image/x-icon" href="Untitled.ico">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #66a3ff; /* Light Blue */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+            margin: 10px;
+            background: #fff;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #3399ff; /* Medium Light Blue */
+        }
+        .portfolio, .testimonials {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .project, .testimonial {
+            flex: 1;
+            margin: 10px;
+            padding: 10px;
+            background: #e2e2e2;
+            border-radius: 5px;
+            width: calc(30% - 20px);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #66a3ff; /* Light Blue */
+            color: #fff;
+        }
+        button {
+            background-color: #3399ff; /* Medium Light Blue */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #66b3ff; /* Lighter Blue */
+        }
+        @media (max-width: 600px) {
+            .portfolio, .testimonials {
+                flex-direction: column;
+            }
+            .project, .testimonial {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Jts > Lianne</h1>
+</header>
+
+<section>
+    <h2>Links</h2>
+</section>
+
+<footer>
+    <p>&copy; 2025 Jts Studio. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
