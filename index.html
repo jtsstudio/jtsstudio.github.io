@@ -17,6 +17,30 @@
             padding: 10px 20px;
             text-align: center;
         }
+        nav {
+            background: #3399ff; /* Medium Light Blue */
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex; /* Makes the nav horizontal */
+            justify-content: center; /* Centers the nav items */
+        }
+        nav ul li {
+            margin: 0 20px; /* Adds space between nav items */
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px; /* Adjust font size */
+            padding: 10px 15px; /* Add padding for clickable area */
+            transition: background 0.3s; /* Smooth transition for hover effect */
+        }
+        nav ul li a:hover {
+            background: #66b3ff; /* Lighter Blue on hover */
+            border-radius: 5px; /* Rounded corners for hover */
+        }
         section {
             padding: 20px;
             margin: 10px;
@@ -43,20 +67,15 @@
         h2 {
             color: #3399ff; /* Medium Light Blue */
         }
-        button {
-            background-color: #3399ff; /* Medium Light Blue */
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #66b3ff; /* Lighter Blue */
-        }
         @media (max-width: 600px) {
             .portfolio, .testimonials {
                 flex-direction: column;
+            }
+            nav ul {
+                flex-direction: column; /* Stack vertically on small screens */
+            }
+            nav ul li {
+                margin: 5px 0; /* Adjust margin for vertical layout */
             }
         }
     </style>
@@ -64,7 +83,6 @@
 <body>
 
 <header>
-    <h1>Welcome to JTs' Personal Website</h1>
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -72,7 +90,8 @@
             <li><a href="posts.html">Posts</a></li>
         </ul>
     </nav>
-    <p>Explore My Work and Passion</p>
+    <h1>Welcome to JTs' Personal Website</h1>
+
     <p>Explore My Work and Passion</p>
 </header>
 
@@ -98,7 +117,6 @@
         </div>
     </div>
     <h1><a href="projectlist.html" target="_blank">See my full project list here</a></h1>
-
 </section>
 
 <section id="skills">
@@ -121,7 +139,4 @@
 </footer>
 
 </body>
-
 </html>
-
-
