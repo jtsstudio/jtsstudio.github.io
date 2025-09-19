@@ -27,19 +27,6 @@
         h2 {
             color: #3399ff; /* Medium Light Blue */
         }
-        .post {
-            background: #e2e2e2;
-            border-radius: 5px;
-            margin: 10px 0;
-            padding: 15px;
-        }
-        .post h3 {
-            margin: 0;
-            color: #3399ff; /* Medium Light Blue */
-        }
-        .post p {
-            margin: 5px 0;
-        }
         footer {
             text-align: center;
             padding: 20px;
@@ -57,11 +44,6 @@
         button:hover {
             background-color: #66b3ff; /* Lighter Blue */
         }
-        @media (max-width: 600px) {
-            .post {
-                padding: 10px;
-            }
-        }
         .collapsible {
             background-color: #66a3ff; /* Light Blue */
             color: white;
@@ -75,17 +57,22 @@
             border-radius: 5px;
             margin: 5px 0;
         }
-
         .active, .collapsible:hover {
             background-color: #3399ff; /* Medium Light Blue */
         }
-        
         .content {
             padding: 15px;
             display: none; /* Hidden by default */
             overflow: hidden;
             background-color: #e6f7ff; /* Very Light Blue */
             border: 1px solid #b3e0ff; /* Light Blue Border */
+            border-radius: 5px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
             border-radius: 5px;
         }
     </style>
@@ -98,9 +85,9 @@
 
 <section id="about-me">
     <h2>Admin Zone. Please login to continue.</h2>
-    <button type="button" class="collapsible">Login</button>
+    <button type="button" class="collapsible" onclick="toggleLogin()">Login</button>
 </section>
-<div class="content">
+<div class="content" id="loginForm">
     <h2>Login</h2>
     <input type="text" id="username" placeholder="Username" required>
     <input type="password" id="password" placeholder="Password" required>
@@ -108,23 +95,28 @@
 </div>
 
 <script>
-    // Storing hashed usernames and passwords
-    const users = {
-        // Example: these should be pre-hashed
-        "24a0e915c9cc7ebf01797ab65ec4417446465c983e79969c2e1331b758677770": "b451923b2ea119d5a0931be1b58b50c187f22146d8c6905f700b956cc9f5c64a", // Replace with actual hashed password
-        "user2": "hashed_password_2", // Replace with actual hashed password
-        "user3": "hashed_password_3"  // Replace with actual hashed password
-    };
-
-    // Function to hash the username and password
-    function hashUserData(username, password) {
-        return {
-            hashedUsername: sha256(username),
-            hashedPassword: sha256(password)
-        };
+    // Toggle login form visibility
+    function toggleLogin() {
+        const content = document.getElementById('loginForm');
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
     }
 
-    function login() {
+    // Storing hashed usernames and passwords
+    const users = {
+        "24a0e915c9cc7ebf01797ab65ec4417446465c983e79969c2e1331b758677770": "b451923b2ea119d5a0931be1b58b50c187f22146d8c6905f700b956cc9f5c64a", // Replace with actual hashed credentials
+        "hashed_username_2": "hashed_password_2"
+    };
+
+    // Function to hash a string using SHA-256
+    async function hashString(string) {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(string);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); // Convert bytes to hex string
+    }
+
+    async function login() {
         const username = document.getElementById('username').value.trim();
         const password = document.getElementById('password').value.trim();
 
@@ -133,14 +125,16 @@
             return;
         }
 
-        const { hashedUsername, hashedPassword } = hashUserData(username, password);
+        // Hash the username and password
+        const hashedUsername = await hashString(username);
+        const hashedPassword = await hashString(password);
 
         // Validate the hashed username and password against the stored hashes
         if (users[hashedUsername] === hashedPassword) {
             const uniqueCode = generateUniqueCode();
             localStorage.setItem('uniqueCode', uniqueCode);
             alert('Login successful! Your unique code is: ' + uniqueCode);
-            window.location.href = 'https://jtsstudio.github.io/profile.html'; // Redirect to portrait.html
+            window.location.href = 'https://jtsstudio.github.io/profile.html'; // Redirect to profile.html
         } else {
             alert('Invalid username or password. Please try again.');
             document.getElementById('username').value = '';
